@@ -63,7 +63,7 @@
                                                     </td>
                                                     <td>{{ $membre->user->nom_mere }}</td>
                                                     <td>{{ $membre->user->sexe }}</td>
-                                                    <td>{{ $membre->user->adresse }}</td>
+                                                    <td>{{ $membre->user->pays . '/' . $membre->user->ville }}</td>
                                                     <td class="text-end">
                                                         <a href="{{ route('membres.cotisations', $membre_id) }}"
                                                             class="btn btn-sm btn-white text-success me-2"><i
