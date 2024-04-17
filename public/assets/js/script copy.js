@@ -1,4 +1,4 @@
-// import fr from '../plugins/intl-tel-input/js/i18n/fr'    
+import fr from '../plugins/intl-tel-input/js/i18n/fr'    
 (function ($) {
     "use strict";
     var $wrapper = $('.main-wrapper');
@@ -237,6 +237,7 @@
         const iti =  window.intlTelInput(input, {
             initialCountry: "tg",
             strictMode: true,
+            i18n: fr,
             nationalMode: true,
             utilsScript: "/assets/plugins/intl-tel-input/js/utils.js",
         });
@@ -259,7 +260,7 @@
 
         // listen to the address dropdown for changes
         addressDropdown.addEventListener('change', () => {
-            iti.setCountry(addressDropdown.value);
+            iti.setCountry(this.value);
         });
     }
 

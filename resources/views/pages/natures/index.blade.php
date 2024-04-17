@@ -47,9 +47,10 @@
                             $nature_id = Illuminate\Support\Facades\Crypt::encryptString($nature->id);
                         @endphp
                         <div class="col-sm-6 col-lg-4 col-xl-3 d-flex parent">
-                            <div class="card invoices-grid-card w-100">
+                            <div class="card shadow invoices-grid-card w-100">
                                 <div class="card-header d-flex justify-content-between align-items-center">
-                                    <a href="#" class="invoice-grid-link nature">{{ $nature->designation }}</a>
+                                    <a href="{{ route('natures.show', $nature_id) }}"
+                                        class="invoice-grid-link nature">{{ $nature->designation }}</a>
                                     <div class="dropdown dropdown-action">
                                         <a href="#" class="action-icon dropdown-toggle" data-bs-toggle="dropdown"
                                             aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>

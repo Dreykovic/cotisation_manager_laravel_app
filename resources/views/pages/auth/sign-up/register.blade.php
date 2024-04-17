@@ -1,4 +1,7 @@
 @extends('pages.app')
+@section('style')
+<link rel="stylesheet" href="{{ asset('assets/plugins/intl-tel-input/css/intlTelInput.min.css') }}">
+@endsection
 @section('guest-content')
     <div class="main-wrapper login-body">
         <div class="login-wrapper">
@@ -84,16 +87,16 @@
                                     <label for="phone" class="col-sm-3 col-form-label input-label required">Contact
                                     </label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="phone" placeholder=""
+                                        <input type="tel" class="form-control" id="phone" placeholder=""
                                             name="telephone" required>
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <label for="location" class="col-sm-3 col-form-label input-label">Adresse</label>
                                     <div class="col-sm-9">
-                                        <div class="mb-3">
-                                            <input type="text" class="form-control" id="location" placeholder="Pays"
-                                                name="pays">
+                                        <div class="mb-3">  
+                                            <select type="text" class="form-control" id="location" placeholder="Pays"
+                                                name="pays"></select>
                                         </div>
                                         <div class="mb-3">
                                             <input type="text" class="form-control" placeholder="Ville ou Village"
@@ -146,5 +149,7 @@
     <script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/moment/moment.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap-datetimepicker.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/intl-tel-input/js/intlTelInput.min.js') }}"></script>
+
     <script src="{{ asset('app-js/auth/register.js') }}"></script>
 @endpush

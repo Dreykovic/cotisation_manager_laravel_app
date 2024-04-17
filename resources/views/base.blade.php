@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/fontawesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome/css/all.min.css') }}">
     @yield('style')
-
+  
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 </head>
 
@@ -45,7 +45,7 @@
     <script src="{{ asset('app-js/modules.js') }}"></script>
     @stack('js')
 
-    <script src="{{ asset('assets/js/script.js') }}"></script>
+    <script src="{{ asset('assets/js/script.js') }}" ></script>
 
 
 
