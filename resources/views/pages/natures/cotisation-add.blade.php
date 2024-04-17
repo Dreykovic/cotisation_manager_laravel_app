@@ -1,7 +1,13 @@
 <div id="cont-add-modal" class="modal myModal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
     aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
+
+
         <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Ajouter une cotisation</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
             <div class="card"></div>
             <div class="card-body">
                 <form id="cotisationAddForm">
@@ -23,7 +29,7 @@
                                 <label>Membre:</label>
 
 
-                                <select class="placeholder js-states select form-control select2-membres"
+                                <select class="placeholder js-states select in-modal  form-control select2-membres"
                                     name="membre">
 
                                     @foreach ($membres as $membre)
@@ -49,7 +55,7 @@
 
                             <div class="form-group">
                                 <label>Mode de payement:</label>
-                                <select class="select" name="mode">
+                                <select class="select in-modal " name="mode">
                                     <option disabled>Select Payment Mode</option>
                                     <option value="Main à main">Main à main</option>
                                     <option value="Tmoney">Tmoney</option>

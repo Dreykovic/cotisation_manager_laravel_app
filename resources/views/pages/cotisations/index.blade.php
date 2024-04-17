@@ -30,9 +30,9 @@
                         <a href="{{ route('cotisations.create') }}" class="btn btn-primary me-1">
                             <i class="fas fa-plus"></i>
                         </a>
-                        <a class="btn btn-primary filter-btn" href="javascript:void(0);" id="filter_search">
-                            <i class="fas fa-filter"></i>
-                        </a>
+                        <button class="btn btn-primary" id="downloadBtn" data-nature-id="">
+                            <i class="fas fa-download"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -144,6 +144,8 @@
             @endif
         </div>
     </div>
+    @include('pages.natures.pdf-view')
+
 @endsection
 
 
@@ -158,4 +160,6 @@
     <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('app-js/cotisations/delete.js') }}"></script>
+    <script src="{{ asset('app-js/natures/pdf.js') }}"></script>
+
 @endpush

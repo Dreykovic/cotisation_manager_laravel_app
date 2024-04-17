@@ -110,7 +110,7 @@
     <main>
         @foreach ($natures as $nature)
             <h1>
-                {{ $nature->designation }}
+Nature:                 {{ $nature->designation }}
 
             </h1>
 

@@ -41,7 +41,7 @@
 
                                 <label class="form-label" for="motif">Motif De Cotisation:</label>
 
-                                <select class="select select2-types" name="type" id="motif">
+                                <select class="select in-modal  select2-types" name="type" id="motif">
 
                                     @foreach ($natures as $nature)
                                         @php
@@ -57,7 +57,7 @@
                             <div class="mb-3">
 
                                 <label class="form-label" for="mode">Mode de payement:</label>
-                                <select class="select" name="mode" id="mode">
+                                <select class="select in-modal " name="mode" id="mode">
                                     <option disabled>Select Payment Mode</option>
                                     <option value="Main à main">Main à main</option>
                                     <option value="Tmoney">Tmoney</option>

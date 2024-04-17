@@ -49,23 +49,16 @@
         }
     });
     if ($('.select').length > 0) {
+        var dropdownParent = $('.select').hasClass('in-modal') ?$('.select').closest('.myModal'): null;
+        
+        console.log($('.select').length );
         $('.select').select2({
             // minimumResultsForSearch: -1,
             width: '100%',
-            dropdownParent: $('.myModal')
+            dropdownParent: dropdownParent
         });
     }
-    if ($('.datetimepicker').length > 0) {
-        $('.datetimepicker').datetimepicker({
-            format: 'DD-MM-YYYY',
-            icons: {
-                up: "fas fa-angle-up",
-                down: "fas fa-angle-down",
-                next: 'fas fa-angle-right',
-                previous: 'fas fa-angle-left'
-            }
-        });
-    }
+
     if ($('.bookingrange').length > 0) {
         var start = moment().subtract(6, 'days');
         var end = moment();

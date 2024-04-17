@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Membre;
+
 use App\Models\Nature;
-use App\Models\Cotisation;
-use Illuminate\Http\Request;
+
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Crypt;
+
 
 class PdfController extends Controller
 {
@@ -46,7 +46,7 @@ class PdfController extends Controller
     }
     public function cotisations($nature = null)
     {
-        // try {
+        try {
 
         $natures = [];
         if ($nature === null) {
@@ -55,28 +55,32 @@ class PdfController extends Controller
         } else {
             $nature_id = Crypt::decryptString($nature);
 
-            $natures = Nature::with('cotisation')->find($nature_id);
+            $natures = Nature::with('cotisations')->where("id","=",$nature_id)->get();
 
         }
+        // dd($natures);    
         $data = [
             'natures' => $natures
         ];
 
-        $nature = $nature ?? '';
+        
 
 
         $pdf = Pdf::loadView('pdf.natures', $data);
 
-        $titre = "cotisations_par_{$nature}.pdf";
+        $titre = "cotisations_par_nature.pdf";
+        // $content = $pdf->download()->getOriginalContent();
+
+        // Storage::put('public/pdf/cotisations.pdf', $content);
 
         //127.0.0.1:8000/download/pdf/membres
         return $pdf->download($titre);
-        // } catch (\Exception $e) {
+        } catch (\Exception $e) {
 
-        //     // return back()->with(['error' => "{$e->getMessage()} {$e->getLine()}"]);
-        //     // Gérez l'erreur ici, vous pouvez la logger ou retourner une réponse adaptée à l'erreur.
-        //     return back()->with(['error' => 'Une erreur s\'est produite. Veuillez réessayer ou contactez le support technique si le problème persiste']);
+            // return back()->with(['error' => "{$e->getMessage()} {$e->getLine()}"]);
+            // Gérez l'erreur ici, vous pouvez la logger ou retourner une réponse adaptée à l'erreur.
+            return back()->with(['error' => 'Une erreur s\'est produite. Veuillez réessayer ou contactez le support technique si le problème persiste']);
 
-        // }
+        }
     }
 }
