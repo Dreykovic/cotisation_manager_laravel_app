@@ -30,13 +30,16 @@
                         <a href="{{ route('cotisations.create') }}" class="btn btn-primary me-1">
                             <i class="fas fa-plus"></i>
                         </a>
-                        <button class="btn btn-primary" id="downloadBtn" data-nature-id="">
+                        <button class="btn btn-primary downloadBtn" id="downloadBtn" data-nature-id="">
                             <i class="fas fa-download"></i>
                         </button>
+                        {{-- <a class="btn btn-primary filter-btn" href="javascript:void(0);" id="filter_search">
+                            <i class="fas fa-filter"></i>
+                        </a> --}}
                     </div>
                 </div>
             </div>
-            <div id="filter_inputs" class="card filter-card">
+            {{-- <div id="filter_inputs" class="card filter-card">
                 <div class="card-body pb-0">
                     <div class="row">
                         <div class="col-sm-6 col-md-3">
@@ -65,7 +68,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             @if (!$cotisations->isEmpty())
                 <div class="row">
                     <div class="col-sm-12">

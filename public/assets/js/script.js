@@ -51,7 +51,7 @@
     if ($('.select').length > 0) {
         var dropdownParent = $('.select').hasClass('in-modal') ?$('.select').closest('.myModal'): null;
         
-        console.log($('.select').length );
+        // console.log($('.select').length );
         $('.select').select2({
             // minimumResultsForSearch: -1,
             width: '100%',

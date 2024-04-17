@@ -60,8 +60,11 @@
                                             aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>
                                         <div class="dropdown-menu dropdown-menu-end">
 
-                                            <a class="dropdown-item" href="{{ route('natures.show', $nature_id) }}"><i
+                                            <a class="dropdown-item mb-3" href="{{ route('natures.show', $nature_id) }}"><i
                                                     class="far fa-eye me-2"></i>Voir</a>
+
+                                            <button class="dropdown-item mb-3" href#"><i
+                                                class="fas fa-file-pdf me-2"></i>Télécharger</button>
                                             <a class="dropdown-item text-danger deleteBtn " href="#"
                                                 id="{{ $nature_id }}"><i class="far fa-trash-alt me-2"></i> <span
                                                     class="normal-status">
