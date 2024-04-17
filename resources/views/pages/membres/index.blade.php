@@ -41,9 +41,9 @@
                             <div class="col-sm-6 col-md-6  m-auto">
                                 <div class="form-group">
                                     <label>Télécharger par</label>
-                                    <select class="select">
+                                    <select class="select downloadFilterSelect">
                                         <option value="last_name">Nom de Famille</option>
-                                        <option value="nomçpere">Nom de Père</option>
+                                        <option value="nom_pere">Nom de Père</option>
 
                                         <option value="sexe">Sexe</option>
                                         <option value="ville">Lieu de Résidence</option>
@@ -146,6 +146,8 @@
             </div>
         </div>
     </div>
+    @include('pdf.pdf-view')
+
 @endsection
 @push('js')
     <script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
@@ -156,4 +158,5 @@
     <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('app-js/membres/index.js') }}"></script>
+    <script src="{{ asset('app-js/membres/pdf.js') }}"></script>
 @endpush

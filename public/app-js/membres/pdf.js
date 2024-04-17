@@ -1,11 +1,11 @@
 "use strict";
-let AppCotisationsPDF = (function () {
+let AppMembresPDF = (function () {
   let pdfModal;
 
   let downloadBtn;
-  let nature = "";
 
-  let downloadUrl = "";
+
+
 
   let handleDownload = () => {
 
@@ -14,9 +14,11 @@ let AppCotisationsPDF = (function () {
     // console.log(downloadBtn);
     $(downloadBtn).on("click", (e) => {
       e.preventDefault();
-      nature = $(downloadBtn).data("nature-id") ?? "";
-      // console.log(nature);
-      downloadUrl = "/download/pdf/cotisations/" + nature;
+      // console.log($(".downloadFilterSelect").val());
+      const orderBy = $(".downloadFilterSelect").val() ?? "";
+      // console.log(orderBy);
+      const downloadUrl = "/download/pdf/membres/" + orderBy;
+      console.log(downloadUrl);
       axios
         .get(downloadUrl, {
           responseType: "blob", // indique que la réponse est un blob
@@ -55,5 +57,5 @@ let AppCotisationsPDF = (function () {
   };
 })();
 document.addEventListener("DOMContentLoaded", (e) => {
-  AppCotisationsPDF.init();
+  AppMembresPDF.init();
 });
