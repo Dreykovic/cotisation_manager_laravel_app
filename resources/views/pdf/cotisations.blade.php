@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
+    {{-- 
     <script>
         var formatMontant = (text) => {
             text = text.trim();
@@ -27,7 +27,7 @@
 
             element.innerText = texte + ' FCFA';
         });
-    </script>
+    </script> --}}
 </head>
 
 <body>
@@ -47,7 +47,7 @@
             display: flex;
             flex-direction: row;
             justify-content: center;
-            align-items: start;
+            align-items: end;
             padding: 0 10px 0px 10px;
 
 
@@ -101,9 +101,11 @@
             background-color: #f2f2f2;
         }
 
+
         div.cellule {
-            text-align: start;
-            align-items: start;
+            width: 100%;
+            text-align: right;
+
         }
 
 
@@ -138,13 +140,13 @@
             <table>
                 <tbody>
                     <tr>
-                        <td style="text-align: start; font-weight: 900;">
+                        <td style="text-align: end; font-weight: 900;">
                             Montant Total
                         </td>
-                        <td style="text-align: start;">
+                        <td>
                             :
                         </td>
-                        <td style="text-align: start;">
+                        <td>
                             {{ $nature->cotisations->sum('montant') }}
                         </td>
                     </tr>
@@ -156,7 +158,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th style="text-align: start;">No</th>
+                        <th>No</th>
                         <th>Membre</th>
                         <th>Montant</th>
                         <th>Date</th>
@@ -170,17 +172,19 @@
                             <td class="text-nowrap" style="word-wrap: normal;overflow-wrap: normal;">
                                 {{ $key + 1 }}
                             </td>
-                            <td style="text-align: start;">
+                            <td>
                                 {{ $cotisation->membre->user->last_name . ' ' . $cotisation->membre->user->first_name }}
 
                             </td>
-                            <td style="text-align: start;" class="montant text-end">
-                                {{ $cotisation->montant }}
+                            <td>
+                                <div class="cellule" style="text-align: right; ">
+                                    {{ $cotisation->montant_f }}
+                                </div>
                             </td>
-                            <td style="text-align: start;">
+                            <td style="text-align: right; ">
                                 {{ $cotisation->date_cotisation }}
                             </td>
-                            <td tyle="text-align: start;">
+                            <td style="text-align: right; ">
                                 {{ $cotisation->canal }}
                             </td>
                         </tr>

@@ -48,38 +48,51 @@ class PdfController extends Controller
     {
         try {
 
-        $natures = [];
-        if ($nature === null) {
-            $natures = Nature::with('cotisations')->get();
+            $natures = [];
 
-        } else {
-            $nature_id = Crypt::decryptString($nature);
+            if ($nature === null) {
+                $natures = Nature::with('cotisations')->get();
+            } else {
+                $nature_id = Crypt::decryptString($nature);
+                $natures = Nature::with('cotisations')->where("id", "=", $nature_id)->get();
+            }
 
-            $natures = Nature::with('cotisations')->where("id","=",$nature_id)->get();
+            // Formater les montants des cotisations sans modifier les autres attributs
+            $formattedNatures = $natures->map(function ($nature) {
+                $formattedCotisations = $nature->cotisations->map(function ($cotisation) {
+                    $cotisation->montant_f = $this->formatMontant($cotisation->montant);
+                    return $cotisation;
+                });
 
-        }
-        // dd($natures);    
-        $data = [
-            'natures' => $natures
-        ];
+                $nature->cotisations = $formattedCotisations;
+                return $nature;
+            });
 
-        
+            $data = [
+                'natures' => $formattedNatures
+            ];
+
+            // return $data;
 
 
-        $pdf = Pdf::loadView('pdf.natures', $data);
 
-        $titre = "cotisations_par_nature.pdf";
-        // $content = $pdf->download()->getOriginalContent();
 
-        // Storage::put('public/pdf/cotisations.pdf', $content);
 
-        //127.0.0.1:8000/download/pdf/membres
-        return $pdf->download($titre);
+            $pdf = Pdf::loadView('pdf.cotisations', $data);
+
+            $titre = "cotisations_par_nature.pdf";
+            // $content = $pdf->download()->getOriginalContent();
+
+            // Storage::put('public/pdf/cotisations.pdf', $content);
+
+            //127.0.0.1:8000/download/pdf/membres
+            return $pdf->download($titre);
         } catch (\Exception $e) {
 
-            // return back()->with(['error' => "{$e->getMessage()} {$e->getLine()}"]);
-            // Gérez l'erreur ici, vous pouvez la logger ou retourner une réponse adaptée à l'erreur.
-            return back()->with(['error' => 'Une erreur s\'est produite. Veuillez réessayer ou contactez le support technique si le problème persiste']);
+
+            return response()->json(['ok' => false, 'message' => $e->getMessage()]);
+
+            return response()->json(['ok' => false, 'message' => 'Une erreur s\'est produite. Veuillez réessayer.']);
 
         }
     }

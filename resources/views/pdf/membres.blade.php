@@ -153,27 +153,27 @@
 
 
 
-                        <td tyle="text-align: start;">
+                        <td style="text-align: start;">
                             {{ $user->sexe }}
                         </td>
 
-                        <td tyle="text-align: start;">
+                        <td style="text-align: start;">
                             {{ $user->date_naissance }}
                         </td>
 
-                        <td tyle="text-align: start;">
+                        <td style="text-align: start;">
                             {{ $user->nom_pere }}
                         </td>
-                        <td tyle="text-align: start;">
+                        <td style="text-align: start;">
                             {{ $user->nom_mere }}
                         </td>
-                        <td tyle="text-align: start;">
+                        <td style="text-align: start;">
                             {{ $user->pays }}
                         </td>
-                        <td tyle="text-align: start;">
+                        <td style="text-align: start;">
                             {{ $user->ville }}
                         </td>
-                        <td tyle="text-align: start;">
+                        <td style="text-align: start;">
                             {{ $user->contact }}
 
                         </td>

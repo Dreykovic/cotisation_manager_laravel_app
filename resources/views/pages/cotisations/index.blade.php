@@ -72,7 +72,7 @@
             @if (!$cotisations->isEmpty())
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="card card-table">
+                        <div class="card shadow card-table">
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-center table-hover datatable" id="cotisationTable">
