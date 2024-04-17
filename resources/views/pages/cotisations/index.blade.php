@@ -147,7 +147,7 @@
             @endif
         </div>
     </div>
-    @include('pages.natures.pdf-view')
+    @include('pdf.pdf-view')
 
 @endsection
 
@@ -164,5 +164,4 @@
     <script src="{{ asset('assets/plugins/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('app-js/cotisations/delete.js') }}"></script>
     <script src="{{ asset('app-js/natures/pdf.js') }}"></script>
-
 @endpush

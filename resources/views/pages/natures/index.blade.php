@@ -1,10 +1,5 @@
 @extends('pages.app')
 @section('style')
-    <link rel="stylesheet" href="{{ asset('assets/plugins/select2/css/select2.min.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-datetimepicker.min.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('assets/plugins/datatables/datatables.min.css') }}">
 @endsection
 
 @section('auth-content')
@@ -107,7 +102,7 @@
         </div>
     </div>
     @include('pages.natures.create')
-    @include('pages.natures.pdf-view')
+    @include('pdf.pdf-view')
 @endsection
 
 
@@ -115,13 +110,6 @@
 
 
 @push('js')
-    <script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
-
-    <script src="{{ asset('assets/plugins/moment/moment.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap-datetimepicker.min.js') }}"></script>
-
-    <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('app-js/natures/add.js') }}"></script>
     <script src="{{ asset('app-js/natures/index.js') }}"></script>
     <script src="{{ asset('app-js/natures/pdf.js') }}"></script>

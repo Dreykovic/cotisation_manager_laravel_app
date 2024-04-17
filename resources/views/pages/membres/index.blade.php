@@ -1,5 +1,10 @@
 @extends('pages.app')
 @section('style')
+    <link rel="stylesheet" href="{{ asset('assets/plugins/select2/css/select2.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-datetimepicker.min.css') }}">
+
+
     <link rel="stylesheet" href="{{ asset('assets/plugins/datatables/datatables.min.css') }}">
 @endsection
 
@@ -15,6 +20,51 @@
                             <li class="breadcrumb-item active">Membres</li>
                         </ul>
                     </div>
+                    <div class="col-auto">
+                        <a href="{{ route('cotisations.create') }}" class="btn btn-primary me-1">
+                            <i class="fas fa-plus"></i>
+                        </a>
+
+                        <a class="btn btn-primary filter-btn" href="javascript:void(0);" id="filter_search">
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="filter_inputs" class="card filter-card">
+                <div class="card-body pb-0">
+                    <form action="" class="downloadFilterForm">
+                        <div class="row  m-auto">
+
+                            <div class="col-sm-6 col-md-6  m-auto">
+                                <div class="form-group">
+                                    <label>Télécharger par</label>
+                                    <select class="select">
+                                        <option value="last_name">Nom de Famille</option>
+                                        <option value="nomçpere">Nom de Père</option>
+
+                                        <option value="sexe">Sexe</option>
+                                        <option value="ville">Lieu de Résidence</option>
+
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 col-md-6 ">
+                                <div class="form-group">
+                                    <label>Apperçu</label>
+                                    <div>
+                                        <button class="btn btn-primary downloadBtn" id="downloadBtn" data-nature-id="">
+                                            <i class="fas fa-download"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="row">
@@ -98,6 +148,11 @@
     </div>
 @endsection
 @push('js')
+    <script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
+
+    <script src="{{ asset('assets/plugins/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap-datetimepicker.min.js') }}"></script>
+
     <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('app-js/membres/index.js') }}"></script>

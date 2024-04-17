@@ -37,7 +37,7 @@
                             data-bs-target="#cont-add-modal">
                             <i class="fas fa-plus"></i> Ajouter
                         </button>
-                        <button class="btn btn-primary downloadBtn" id="downloadBtn" data-nature-id="{{ $nature_id}}">
+                        <button class="btn btn-primary downloadBtn" id="downloadBtn" data-nature-id="{{ $nature_id }}">
                             <i class="fas fa-download"></i>
                         </button>
                     </div>
@@ -122,7 +122,7 @@
         </div>
     </div>
     @include('pages.natures.cotisation-add')
-    @include('pages.natures.pdf-view')
+    @include('pdf.pdf-view')
 
 @endsection
 
