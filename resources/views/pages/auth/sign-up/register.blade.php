@@ -1,6 +1,8 @@
 @extends('pages.app')
 @section('style')
 <link rel="stylesheet" href="{{ asset('assets/plugins/intl-tel-input/css/intlTelInput.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/plugins/select2/css/select2.min.css') }}">
+
 @endsection
 @section('guest-content')
     <div class="main-wrapper login-body">
@@ -39,16 +41,15 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label input-label required">Sexe</label>
                                     <div class="col-md-9">
-                                        <div class="checkbox">
+                                        
                                             <label>
                                                 <input type="radio" name="sexe" value="Féminin"> Féminin
                                             </label>
-                                        </div>
-                                        <div class="checkbox">
+                                        
                                             <label>
                                                 <input type="radio" name="sexe" value="Masculin">Masculin
                                             </label>
-                                        </div>
+                                        
 
                                     </div>
                                 </div>
@@ -57,8 +58,12 @@
                                         naissance
                                     </label>
                                     <div class="col-sm-9">
-                                        <div class="cal-icon">
-                                            <input class="form-control datetimepicker" type="text" name="date"
+                                            {{-- <div class="cal-icon">
+                                                <input class="form-control datetimepicker" type="text" name="date"
+                                                    required>
+                                            </div> --}}
+                                        <div class="">
+                                            <input class="form-control " type="date" name="date"
                                                 required>
                                         </div>
                                     </div>
@@ -95,7 +100,7 @@
                                     <label for="location" class="col-sm-3 col-form-label input-label">Adresse</label>
                                     <div class="col-sm-9">
                                         <div class="mb-3">  
-                                            <select type="text" class="form-control" id="location" placeholder="Pays"
+                                            <select  class="form-control form-select" aria-label="Liste de Pays" id="location" placeholder="Pays"
                                                 name="pays"></select>
                                         </div>
                                         <div class="mb-3">
@@ -147,8 +152,7 @@
 @endsection
 @push('js')
     <script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/moment/moment.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap-datetimepicker.min.js') }}"></script>
+
     <script src="{{ asset('assets/plugins/intl-tel-input/js/intlTelInput.min.js') }}"></script>
 
     <script src="{{ asset('app-js/auth/register.js') }}"></script>

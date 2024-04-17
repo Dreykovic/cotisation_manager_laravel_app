@@ -12,12 +12,12 @@ return new class extends Migration {
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name')->nullable();
-            $table->string('last_name')->nullable();
-            $table->date('date_naissance')->nullable();
-            $table->enum('sexe', ['Masculin', 'Féminin'])->nullable();
-            $table->string('nom_pere')->nullable();
-            $table->string('nom_mere')->nullable();
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->date('date_naissance');
+            $table->enum('sexe', ['Masculin', 'Féminin']);
+            $table->string('nom_pere');
+            $table->string('nom_mere');
             $table->string('pays')->default('Togo');
             $table->string('ville')->default('Sokodé');
             $table->string('quartier')->default('quartier');
