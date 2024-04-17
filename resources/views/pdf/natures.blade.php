@@ -6,7 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
+    <script>
+        var formatMontant = (text) => {
+            text = text.trim();
+            text = text.split('').reverse().join('');
+            var length = text.length;
+            var newText = '';
+            for (var i = 0; i <= length - 1; i++) {
+                if ((i + 1) % 3 === 1 && i != 1) {
+                    newText += ' ';
+                }
+                newText += text[i];
+            }
+            newText = newText.split('').reverse().join('');
 
+            return newText;
+        }
+        document.querySelectorAll('.montant').forEach(element => {
+            texte = formatMontant(element.innerText);
+
+            element.innerText = texte + ' FCFA';
+        });
+    </script>
 </head>
 
 <body>
@@ -110,7 +131,7 @@
     <main>
         @foreach ($natures as $nature)
             <h1>
-Nature:                 {{ $nature->designation }}
+                Nature: {{ $nature->designation }}
 
             </h1>
 
@@ -149,14 +170,14 @@ Nature:                 {{ $nature->designation }}
                             <td class="text-nowrap" style="word-wrap: normal;overflow-wrap: normal;">
                                 {{ $key + 1 }}
                             </td>
-                            <td tyle="text-align: start;">
+                            <td style="text-align: start;">
                                 {{ $cotisation->membre->user->last_name . ' ' . $cotisation->membre->user->first_name }}
 
                             </td>
-                            <td tyle="text-align: start;">
+                            <td style="text-align: start;" class="montant text-end">
                                 {{ $cotisation->montant }}
                             </td>
-                            <td tyle="text-align: start;">
+                            <td style="text-align: start;">
                                 {{ $cotisation->date_cotisation }}
                             </td>
                             <td tyle="text-align: start;">

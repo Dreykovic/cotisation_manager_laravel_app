@@ -113,7 +113,7 @@
                                                             </a>
                                                         </h2>
                                                     </td>
-                                                    <td>{{ $cotisation->montant }} </td>
+                                                    <td class="montant text-end">{{ $cotisation->montant }} </td>
                                                     <td>{{ $cotisation->date_cotisation }}</td>
                                                     <td>{{ $cotisation->canal }}</td>
                                                     <td class="text-end">

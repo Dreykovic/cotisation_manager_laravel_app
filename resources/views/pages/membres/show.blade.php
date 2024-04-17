@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col-xl-3 col-md-4">
 
-                    <div class="widget settings-menu">
+                    <div class="widget card-body shadow settings-menu">
                         <ul>
                             <li class="nav-item">
                                 <a href="{{ route('membres.info', $membre_id) }}"

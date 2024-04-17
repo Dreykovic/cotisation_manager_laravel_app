@@ -1,6 +1,6 @@
 @extends('pages.membres.show')
 @section('membre-settings')
-    <div class="card">
+    <div class="card shadow">
         <div class="card-body">
             <form id="cotisationAddForm">
                 @php

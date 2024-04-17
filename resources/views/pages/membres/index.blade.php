@@ -34,7 +34,7 @@
             </div>
 
             <div id="filter_inputs" class="card filter-card">
-                <div class="card-body pb-0">
+                <div class="card-body shadow pb-0">
                     <form action="" class="downloadFilterForm">
                         <div class="row  m-auto">
 
@@ -69,7 +69,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="card card-table">
+                    <div class="card  shadow card-table">
                         <div class="card-header">
                             <h4 class="card-title">Liste des Membres</h4>
                         </div>

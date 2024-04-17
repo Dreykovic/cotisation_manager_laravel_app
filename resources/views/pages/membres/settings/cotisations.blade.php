@@ -3,7 +3,7 @@
     @php
         $membre_id = Illuminate\Support\Facades\Crypt::encryptString($membre->id);
     @endphp
-    <div class="card card-table">
+    <div class="card card-table shadow">
         <div class="card-header">
             <div class="row">
                 <div class="col">
@@ -37,7 +37,7 @@
                                 @endphp
                                 <tr>
                                     <td>{{ $cotisation->nature->designation }}</td>
-                                    <td>{{ $cotisation->montant }}</td>
+                                    <td class="montant text-end">{{ $cotisation->montant }}</td>
                                     <td>
                                         {{ $cotisation->date_cotisation }}
                                     </td>

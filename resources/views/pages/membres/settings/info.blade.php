@@ -3,7 +3,7 @@
     @php
         $membre_id = Illuminate\Support\Facades\Crypt::encryptString($membre->id);
     @endphp
-    <div class="card">
+    <div class="card shadow">
         <div class="card-header">
             <h5 class="card-title">information basique</h5>
         </div>

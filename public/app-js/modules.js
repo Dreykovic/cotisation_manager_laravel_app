@@ -6,7 +6,21 @@ const AppModules = function () {
     // Public functions
     return {
         // Initialization
+        formatMontant: (text) => {
+            text = text.trim();
+            text = text.split('').reverse().join('');
+            var length = text.length;
+            var newText = '';
+            for (var i = 0; i <= length - 1; i++) {
+                if ((i + 1) % 3 === 1 && i != 1) {
+                    newText += ' ';
+                }
+                newText += text[i];
+            }
+            newText = newText.split('').reverse().join('');
 
+            return newText;
+        },
         showSpinner: (btn) => {
             if (!btn) return;
 

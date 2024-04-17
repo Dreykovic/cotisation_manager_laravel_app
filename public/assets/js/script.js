@@ -49,8 +49,8 @@
         }
     });
     if ($('.select').length > 0) {
-        var dropdownParent = $('.select').hasClass('in-modal') ?$('.select').closest('.myModal'): null;
-        
+        var dropdownParent = $('.select').hasClass('in-modal') ? $('.select').closest('.myModal') : null;
+
         // console.log($('.select').length );
         $('.select').select2({
             // minimumResultsForSearch: -1,
@@ -217,5 +217,21 @@
         s.preventDefault();
         $('.siderbar-view').removeClass('show-sidebar');
     });
+    // project data table
+
+
+
+    $('.montant').each(function (index, element) {
+        let texte = AppModules.formatMontant($(element).text());
+
+        $(element).text(texte + ' FCFA');
+    })
+
+
+
+
+
+
+
 
 })(jQuery);

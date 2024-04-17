@@ -45,9 +45,16 @@
             </div>
 
             @if (!$nature->cotisations->isEmpty())
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h2><i class="far fa-money-bill-alt"></i> Montant Total</h2>
+                        <h3 class="mb-0 montant">{{ $nature->cotisations->sum('montant') }}</h3>
+                    </div>
+
+                </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="card card-table">
+                        <div class="card shadow card-table">
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-center table-hover datatable" id="cotisationTable">
@@ -87,7 +94,7 @@
                                                             </a>
                                                         </h2>
                                                     </td>
-                                                    <td>{{ $cotisation->montant }} </td>
+                                                    <td class="montant text-end">{{ $cotisation->montant }} </td>
                                                     <td>{{ $cotisation->date_cotisation }}</td>
                                                     <td>{{ $cotisation->canal }}</td>
                                                     <td class="text-end">

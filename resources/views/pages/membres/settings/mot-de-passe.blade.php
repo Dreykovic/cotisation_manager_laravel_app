@@ -1,6 +1,6 @@
 @extends('pages.membres.show')
 @section('membre-settings')
-    <div class="card">
+    <div class="card shadow">
         <div class="card-header">
             <h5 class="card-title">Change Password</h5>
         </div>

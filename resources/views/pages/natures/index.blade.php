@@ -80,7 +80,7 @@
                                     <div class="row align-items-center">
                                         <div class="col">
                                             <span><i class="far fa-money-bill-alt"></i> Montant Total</span>
-                                            <h6 class="mb-0">{{ $nature->montant_total }}</h6>
+                                            <h6 class="mb-0 montant">{{ $nature->montant_total }}</h6>
                                         </div>
                                         <div class="col-auto">
                                             <span><i class="far fa-user"></i>Total Cotisations</span>
