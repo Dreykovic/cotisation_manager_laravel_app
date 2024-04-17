@@ -23,7 +23,7 @@ let AppNaturesDelete = function () {
 
 
             handleMembersDelete();
-            console.log(445);
+            // console.log(445);
         }
     }
 }();

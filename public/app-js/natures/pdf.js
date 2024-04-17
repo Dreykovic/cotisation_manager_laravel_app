@@ -1,5 +1,5 @@
 "use strict";
-let AppNaturesAdd = (function () {
+let AppCotisationsPDF = (function () {
   let pdfModal;
 
   let downloadBtns;
@@ -11,11 +11,11 @@ let AppNaturesAdd = (function () {
 
     downloadBtns.each((index, downloadBtn) => {
 
-      console.log(downloadBtn);
+      // console.log(downloadBtn);
       $(downloadBtn).on("click", (e) => {
         e.preventDefault();
         nature = $(downloadBtn).data("nature-id") ?? "";
-        console.log(nature);
+        // console.log(nature);
         downloadUrl = "/download/pdf/cotisations/" + nature;
         axios
           .get(downloadUrl, {
@@ -55,5 +55,5 @@ let AppNaturesAdd = (function () {
   };
 })();
 document.addEventListener("DOMContentLoaded", (e) => {
-  AppNaturesAdd.init();
+  AppCotisationsPDF.init();
 });

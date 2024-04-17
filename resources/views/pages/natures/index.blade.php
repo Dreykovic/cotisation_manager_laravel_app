@@ -63,8 +63,9 @@
                                             <a class="dropdown-item mb-3" href="{{ route('natures.show', $nature_id) }}"><i
                                                     class="far fa-eye me-2"></i>Voir</a>
 
-                                            <button class="dropdown-item mb-3" href#"><i
-                                                class="fas fa-file-pdf me-2"></i>Télécharger</button>
+                                            <button class="dropdown-item mb-3 downloadBtn"
+                                                data-nature-id="{{ $nature_id }}"><i
+                                                    class="fas fa-file-pdf me-2"></i>Télécharger</button>
                                             <a class="dropdown-item text-danger deleteBtn " href="#"
                                                 id="{{ $nature_id }}"><i class="far fa-trash-alt me-2"></i> <span
                                                     class="normal-status">
@@ -106,6 +107,7 @@
         </div>
     </div>
     @include('pages.natures.create')
+    @include('pages.natures.pdf-view')
 @endsection
 
 
@@ -122,4 +124,5 @@
     <script src="{{ asset('assets/plugins/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('app-js/natures/add.js') }}"></script>
     <script src="{{ asset('app-js/natures/index.js') }}"></script>
+    <script src="{{ asset('app-js/natures/pdf.js') }}"></script>
 @endpush
