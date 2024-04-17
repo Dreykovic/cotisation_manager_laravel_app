@@ -71,7 +71,7 @@ Route::group(['middleware' => 'auth'], function () {
      */
     Route::prefix('/download/pdf')->group(function () {
         Route::get('/membres/{orderBy?}', [PdfController::class, 'membres'])->name('pdf.membres');
-        Route::get('/cotisaations/{nature?}', [PdfController::class, 'cotisations'])->name('pdf.cotisations');
+        Route::get('/cotisations/{nature?}', [PdfController::class, 'cotisations'])->name('pdf.cotisations');
 
     });
 
