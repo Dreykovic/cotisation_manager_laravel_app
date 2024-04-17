@@ -11,7 +11,7 @@ let AppMembersIndex = function () {
                 let deleteUrl = "/membres/delete/" + btn.id;
                 let parent = e.target.closest('tr');
                 let membre = parent.querySelector('.memberName').innerText;
-                console.log(membre);
+                // console.log(membre);
                 AppModules.deleteTableItemSubmission(btn, parent, membre, deleteUrl);
 
             })

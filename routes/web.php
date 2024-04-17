@@ -1,10 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CotisationController;
 use App\Http\Controllers\MembreController;
 use App\Http\Controllers\NatureController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CotisationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +65,14 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/store', [NatureController::class, 'store'])->name('natures.store');
         Route::get('/details/{id}', [NatureController::class, 'show'])->name('natures.show');
         Route::delete('/delete/{id}', [NatureController::class, 'destroy'])->name('natures.delete');
+    });
+    /**
+     * Pdf
+     */
+    Route::prefix('/download/pdf')->group(function () {
+        Route::get('/membres/{orderBy?}', [PdfController::class, 'membres'])->name('pdf.membres');
+        Route::get('/cotisaations/{nature?}', [PdfController::class, 'cotisations'])->name('pdf.cotisations');
+
     });
 
 
