@@ -98,12 +98,12 @@ class MembreController extends Controller
                 return response()->json(['ok' => true, 'message' => "Vous avez été enregistrer avec succès. Votre numéro d'ordre est {$membre->id}", 'membre_id' => $membre_id]);
             }
             return response()->json(['ok' => false, 'message' => "Pour vous enregisttrer, vous devez avoir au moins 18 ans"]);
-        } catch (\Throwable $th) {
+        } catch (\Exception $th) {
             //throw $th;
             //throw $th;
-            return response()->json(['ok' => false, 'message' => $th->getMessage()]);
+            // return response()->json(['ok' => false, 'message' => $th->getMessage()]);
 
-            return response()->json(['ok' => false, 'message' => 'Une erreur s\'est produite. Veuillez réessayer.']);
+            return response()->json(['ok' => false, 'message' => "Une erreur s'est produite. Veuillez réessayer. {$th->getMessage()}"]);
 
         }
     }
