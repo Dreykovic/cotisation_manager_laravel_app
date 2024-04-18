@@ -130,7 +130,8 @@
             <thead>
                 <tr>
                     <th style="text-align: start;">No</th>
-                    <th>Nom-Prénoms</th>
+                    <th>Nom</th>
+                    <th>Prénoms</th>
                     <th>Sexe</th>
                     <th>Date de naissance</th>
                     <th>Prénom du Père</th>
@@ -148,9 +149,11 @@
                         </td>
 
                         <td tyle="text-align: start;">
-                            {{ $user->last_name . ' ' . $user->first_name }}
+                            {{ $user->last_name  }}
                         </td>
-
+                        <td tyle="text-align: start;">
+                            {{ $user->first_name }}
+                        </td>
 
 
                         <td style="text-align: start;">

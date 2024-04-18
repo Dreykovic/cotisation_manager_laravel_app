@@ -120,8 +120,8 @@
         <h1><span class="upper"></span>
             VILLAGE GATI-SOUN <br>
             QUARTIER DJIGBE <br>
-            COTISAITONS
-
+            COTISAITONS <br>
+            FILLES ET FILS DE LA MAISON BATO
         </h1>
 
     </div>
@@ -162,7 +162,7 @@
                         <th>Membre</th>
                         <th>Montant</th>
                         <th>Date</th>
-                        <th>Canal de paiement</th>
+                        <th>Moyen de paiement</th>
 
                     </tr>
                 </thead>

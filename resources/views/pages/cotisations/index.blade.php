@@ -39,36 +39,7 @@
                     </div>
                 </div>
             </div>
-            {{-- <div id="filter_inputs" class="card filter-card">
-                <div class="card-body pb-0">
-                    <div class="row">
-                        <div class="col-sm-6 col-md-3">
-                            <div class="form-group">
-                                <label>Customer</label>
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="form-group">
-                                <label>Price</label>
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="form-group">
-                                <label>Payment Mode</label>
-                                <select class="select">
-                                    <option>Payment Mode</option>
-                                    <option>Cash</option>
-                                    <option>Cheque</option>
-                                    <option>Card</option>
-                                    <option>Online</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
+      
             @if (!$cotisations->isEmpty())
                 <div class="card shadow">
                     <div class="card-body">
@@ -89,7 +60,7 @@
                                                 <th>Membre</th>
                                                 <th>Montant</th>
                                                 <th>Date</th>
-                                                <th>Canal de payement</th>
+                                                <th>Moyen de payement</th>
                                                 <th class="text-end">Action</th>
                                             </tr>
                                         </thead>
