@@ -38,7 +38,21 @@
                     <form action="" class="downloadFilterForm">
                         <div class="row  m-auto">
 
-                            <div class="col-sm-6 col-md-6  m-auto">
+                            <div class="col-sm-5 col-md-5  m-auto">
+                                <div class="form-group">
+                                    <label>Télécharger par</label>
+                                    <select class="select downloadFilterSelect">
+                                        <option value="last_name">Nom de Famille</option>
+                                        <option value="nom_pere">Nom de Père</option>
+
+                                        <option value="sexe">Sexe</option>
+                                        <option value="ville">Lieu de Résidence</option>
+
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-5 col-md-5 ">
                                 <div class="form-group">
                                     <label>Télécharger par</label>
                                     <select class="select downloadFilterSelect">
@@ -53,7 +67,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-sm-6 col-md-6 ">
+                            <div class="col-sm-2 col-md-2 ">
                                 <div class="form-group">
                                     <label>Apperçu</label>
                                     <div>
