@@ -41,13 +41,13 @@
                                     <i class="far fa-check-square"></i> <span>Cotisations</span>
                                 </a>
                             </li>
-                            {{-- 
+                            
                             <li class="nav-item">
                                 <a href="{{ route('membres.password', $membre_id) }}"
                                     class="nav-link {{ Str::startsWith(request()->path(), 'membres/settings/mot-de-passe') ? 'active' : '' }}"">
                                     <i class="fas fa-unlock-alt"></i> <span>Changer Mot De Passe</span>
                                 </a>
-                            </li> --}}
+                            </li>
 
                         </ul>
                     </div>

@@ -72,11 +72,7 @@ class AuthController extends Controller
                 $request->only('email')
             );
             if ($status === Password::RESET_LINK_SENT) {
-                $this->createJournalEntry(
-                    null,
-                    'Demande changement de mot de passe',
-                    'Demande de vaidation de mot de passe pour ' . $request->input('email')
-                );
+           
 
                 return response()->json(['message' => __(' Nous vous avons envoyé par email le lien de réinitialisation du mot de passe ! Le lien expirera dans 15 minutes.'), 'ok' => true]);
             } else {
@@ -113,7 +109,6 @@ class AuthController extends Controller
                     $user->save();
                     session()->regenerate();
 
-                    $this->createJournalEntry($user, 'Réinitialisation du mot de passe');
 
                     event(new PasswordReset($user));
                     Auth::logoutOtherDevices($password);
