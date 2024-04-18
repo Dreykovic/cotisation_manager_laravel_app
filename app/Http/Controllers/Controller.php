@@ -31,8 +31,9 @@ class Controller extends BaseController
     public function isAdult($birthdate)
     {
         // Récupération de la date de naissance de l'utilisateur
-        $birthday = Carbon::createFromFormat('Y-m-d', $birthdate);
-        
+        // $birthday = Carbon::createFromFormat('Y-m-d', );
+        $birthday=  Carbon::parse($birthdate);
+
         // Création de la date actuelle
         $currentDate = Carbon::now();
 

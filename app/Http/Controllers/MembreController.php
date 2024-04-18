@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Membre;
 use App\Models\Nature;
@@ -57,7 +58,7 @@ class MembreController extends Controller
         try {
             $this->validate($request, [
 
-                'date' => 'required|string',
+                'date' => 'required|date',
                 'email' => 'email',
                 'nom' => 'required|string',
                 'prenom' => 'required|string',
@@ -70,13 +71,17 @@ class MembreController extends Controller
                 'sexe' => 'required|in:Masculin,Féminin',
 
             ]);
+            
+     $date =Carbon::parse( $request->date);
+            // return response()->json(['ok' => true, 'message' => "Vous avez été enregistrer avec succès. Votre numéro d'ordre est {$date}"]);
+        
 
             if ($this->isAdult($request->date)) {
                 $user = User::create([
                     'last_name' => $request->nom,
                     'first_name' => $request->prenom,
                     'email' => $request->email,
-                    'date_naissance' => $request->date,
+                    'date_naissance' =>Carbon::parse( $request->date),
                     'pays' => $request->pays,
                     'ville' => $request->ville,
 
@@ -92,7 +97,7 @@ class MembreController extends Controller
 
                 return response()->json(['ok' => true, 'message' => "Vous avez été enregistrer avec succès. Votre numéro d'ordre est {$membre->id}", 'membre_id' => $membre_id]);
             }
-            return response()->json(['ok' => false, 'message' => "Pour vous enregisttrer, vous devez avoir 18 ans"]);
+            return response()->json(['ok' => false, 'message' => "Pour vous enregisttrer, vous devez avoir au moins 18 ans"]);
         } catch (\Throwable $th) {
             //throw $th;
             //throw $th;
