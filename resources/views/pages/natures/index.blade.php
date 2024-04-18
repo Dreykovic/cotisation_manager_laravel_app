@@ -9,7 +9,7 @@
             <div class="page-header">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h3 class="page-title">Motif de cotisation</h3>
+                        <h3 class="page-title">Nature de cotisation</h3>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Tableau De Bord</a></li>
                             <li class="breadcrumb-item active">Motif de Cotisation</li>
