@@ -49,7 +49,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Montant:</label>
-                                <input type="text" class="form-control" name="montant">
+                                <input type="number" class="form-control" name="montant">
                             </div>
 
 

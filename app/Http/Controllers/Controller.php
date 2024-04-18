@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Validation\ValidatesRequests;
+use Carbon\Carbon;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Controller extends BaseController
 {
@@ -26,6 +27,20 @@ class Controller extends BaseController
         $newText = strrev($newText);
 
         return $newText . ' FCFA';
+    }
+    public function isAdult($birthdate)
+    {
+        // Récupération de la date de naissance de l'utilisateur
+        $birthday = Carbon::createFromFormat('Y-m-d', $birthdate);
+        
+        // Création de la date actuelle
+        $currentDate = Carbon::now();
+
+        // Calcul de l'âge de l'utilisateur
+        $age = $birthday->diffInYears($currentDate);
+
+        // Vérification si l'utilisateur a 18 ans ou plus
+        return $age >= 18;
     }
 
 }

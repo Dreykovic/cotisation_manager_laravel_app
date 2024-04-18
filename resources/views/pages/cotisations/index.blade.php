@@ -70,6 +70,13 @@
                 </div>
             </div> --}}
             @if (!$cotisations->isEmpty())
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h2><i class="far fa-money-bill-alt"></i> Montant Total</h2>
+                        <h3 class="mb-0 montant">{{ $cotisations->sum('montant') }}</h3>
+                    </div>
+
+                </div>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card shadow card-table">

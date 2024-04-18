@@ -33,7 +33,7 @@
                                         id="date">
                                 </div>
                                 <label for="montant" class="form-label">Montant:</label>
-                                <input type="text" class="form-control" name="montant" id="montant">
+                                <input type="number" class="form-control" name="montant" id="montant">
                             </div>
                         </div>
                         <div class="col-md-12">

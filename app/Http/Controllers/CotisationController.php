@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cotisation;
+use Carbon\Carbon;
 use App\Models\Membre;
 use App\Models\Nature;
+use App\Models\Cotisation;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Crypt;
 
 class CotisationController extends Controller
 {
@@ -19,7 +21,11 @@ class CotisationController extends Controller
         //
         try {
             $cotisations = Cotisation::with(['membre', 'tresorier', 'nature'])->get();
-
+            $cotisations = $cotisations->map(function ($cotisation) {
+                $cotisation->montant_f = $this->formatMontant($cotisation->montant);
+               $cotisation->date_cotisation = Carbon::parse(  $cotisation->date_cotisation)->locale(app()->getLocale())->isoFormat('DD MMMM YYYY'); 
+                return $cotisation;
+            });
             return view('pages.cotisations.index', compact('cotisations'));
         } catch (\Throwable $th) {
             //throw $th;

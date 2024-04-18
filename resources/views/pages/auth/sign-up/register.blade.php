@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="{{ asset('assets/plugins/intl-tel-input/css/intlTelInput.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/plugins/select2/css/select2.min.css') }}">
 
+<link rel="stylesheet" href="{{ asset('assets/css/bootstrap-datetimepicker.min.css') }}">
 @endsection
 @section('guest-content')
     <div class="main-wrapper login-body">
@@ -11,11 +12,11 @@
                 <img class="img-fluid logo-dark mb-2" src="{{ asset('assets/img/logo.png') }}" alt="Logo">
                 <div class="login-right-wrap">
 
-                    <div class="card">
+                    <div class="card shadow">
                         <div class="card-header">
 
                             <h1 class="m-auto">Enregistrement</h1>
-                            <p class="account-subtitle">Enregistrer vous</p>
+                            <p class="account-subtitle">Enregistrez vous</p>
                         </div>
 
 
@@ -58,14 +59,14 @@
                                         naissance
                                     </label>
                                     <div class="col-sm-9">
-                                            {{-- <div class="cal-icon">
+                                            <div class="cal-icon">
                                                 <input class="form-control datetimepicker" type="text" name="date"
                                                     required>
-                                            </div> --}}
-                                        <div class="">
+                                            </div>
+                                        {{-- <div class="">
                                             <input class="form-control " type="date" name="date"
                                                 required>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
 
@@ -153,6 +154,8 @@
 @push('js')
     <script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
 
+    <script src="{{ asset('assets/plugins/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap-datetimepicker.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/intl-tel-input/js/intlTelInput.min.js') }}"></script>
 
     <script src="{{ asset('app-js/auth/register.js') }}"></script>

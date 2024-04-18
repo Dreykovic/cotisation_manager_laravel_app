@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Membre;
 use App\Models\Nature;
 use Illuminate\Http\Request;
@@ -88,7 +89,11 @@ class NatureController extends Controller
             $membres = Membre::with(['user'])->get();
 
             $nature = Nature::with(['cotisations'])->find($numero);
-
+            $nature->cotisations = $nature->cotisations->map(function ($cotisation) {
+                $cotisation->montant_f = $this->formatMontant($cotisation->montant);
+               $cotisation->date_cotisation = Carbon::parse(  $cotisation->date_cotisation)->locale(app()->getLocale())->isoFormat('DD MMMM YYYY'); 
+                return $cotisation;
+            });
             return view('pages.natures.show', compact('nature', 'membres'));
         } catch (\Throwable $th) {
             //throw $th;

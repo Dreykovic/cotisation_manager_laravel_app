@@ -1,9 +1,8 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\uments\workspace\tresoreries\gestion\database\seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Database\Seeders\RoleSeeder;
@@ -26,7 +25,7 @@ class DatabaseSeeder extends Seeder
         $tresorier = User::create([
             'first_name' => "",
             'last_name' => "",
-            'date_naissance' => Carbon::now(),
+            'date_naissance' => "",
             'sexe' => "Féminin",
             'nom_pere' => "",
             'nom_mere' => "",

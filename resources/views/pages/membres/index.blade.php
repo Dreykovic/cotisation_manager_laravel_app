@@ -67,6 +67,14 @@
                     </form>
                 </div>
             </div>
+            @if (!$membres->isEmpty())
+            <div class="card shadow">
+                <div class="card-body">
+                    <h2><i class="far fa-user"></i> Nombre Total</h2>
+                    <h3 class="mb-0">{{ $membres->count() }}</h3>
+                </div>
+
+            </div>
             <div class="row">
                 <div class="col-sm-12">
                     <div class="card  shadow card-table">
@@ -144,6 +152,11 @@
                     </div>
                 </div>
             </div>
+            @else
+            <div class="card-footer">
+                <h4 class="card-title">,Pas de membres liste vide</h4>
+            </div>
+        @endif
         </div>
     </div>
     @include('pdf.pdf-view')

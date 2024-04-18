@@ -59,7 +59,17 @@
             dropdownParent: dropdownParent
         });
     }
-
+    if ($('.datetimepicker').length > 0) {
+        $('.datetimepicker').datetimepicker({
+            format: 'DD-MM-YYYY',
+            icons: {
+                up: "fas fa-angle-up",
+                down: "fas fa-angle-down",
+                next: 'fas fa-angle-right',
+                previous: 'fas fa-angle-left'
+            }
+        });
+    }
     if ($('.bookingrange').length > 0) {
         var start = moment().subtract(6, 'days');
         var end = moment();
@@ -221,7 +231,7 @@
     // project data table
 
 
-    if ($('.montan').length > 0) {
+    if ($('.montant').length > 0) {
 
         $('.montant').each(function (index, element) {
             let texte = AppModules.formatMontant($(element).text());

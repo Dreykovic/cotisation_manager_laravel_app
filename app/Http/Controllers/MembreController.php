@@ -57,7 +57,7 @@ class MembreController extends Controller
         try {
             $this->validate($request, [
 
-                'date' => 'required|date',
+                'date' => 'required|string',
                 'email' => 'email',
                 'nom' => 'required|string',
                 'prenom' => 'required|string',
@@ -71,26 +71,28 @@ class MembreController extends Controller
 
             ]);
 
+            if ($this->isAdult($request->date)) {
+                $user = User::create([
+                    'last_name' => $request->nom,
+                    'first_name' => $request->prenom,
+                    'email' => $request->email,
+                    'date_naissance' => $request->date,
+                    'pays' => $request->pays,
+                    'ville' => $request->ville,
 
-            $user = User::create([
-                'last_name' => $request->nom,
-                'first_name' => $request->prenom,
-                'email' => $request->email,
-                'date_naissance' => $request->date,
-                'pays' => $request->pays,
-                'ville' => $request->ville,
+                    'sexe' => $request->sexe,
+                    'nom_mere' => $request->mere,
+                    'nom_pere' => $request->pere,
+                    'contact' => $request->telephone,
+                ]);
+                $membre = Membre::create(['user_id' => $user->id]);
+                $role = Role::where('name', 'Membre')->first();
+                $user->assignRole([$role->id]);
+                $membre_id = Crypt::encryptString($membre->id);
 
-                'sexe' => $request->sexe,
-                'nom_mere' => $request->mere,
-                'nom_pere' => $request->pere,
-                'contact' => $request->telephone,
-            ]);
-            $membre = Membre::create(['user_id' => $user->id]);
-            $role = Role::where('name', 'Membre')->first();
-            $user->assignRole([$role->id]);
-            $membre_id = Crypt::encryptString($membre->id);
-
-            return response()->json(['ok' => true, 'message' => "Vous avez été enregistrer avec succès. Votre numéro d'ordre est {$membre->id}", 'membre_id' => $membre_id]);
+                return response()->json(['ok' => true, 'message' => "Vous avez été enregistrer avec succès. Votre numéro d'ordre est {$membre->id}", 'membre_id' => $membre_id]);
+            }
+            return response()->json(['ok' => false, 'message' => "Pour vous enregisttrer, vous devez avoir 18 ans"]);
         } catch (\Throwable $th) {
             //throw $th;
             //throw $th;
@@ -178,6 +180,7 @@ class MembreController extends Controller
                 'sexe' => 'required|in:Masculin,Féminin',
                 'membre' => 'required|string',
             ]);
+
             $membre_id = Crypt::decryptString($request->membre);
             $membre = Membre::find($membre_id);
             $user = $membre->user;

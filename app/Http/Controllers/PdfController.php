@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+
 use App\Models\User;
 
 use App\Models\Nature;
-
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Storage;
 
 
 class PdfController extends Controller
@@ -61,6 +63,7 @@ class PdfController extends Controller
             $formattedNatures = $natures->map(function ($nature) {
                 $formattedCotisations = $nature->cotisations->map(function ($cotisation) {
                     $cotisation->montant_f = $this->formatMontant($cotisation->montant);
+                   $cotisation->date_cotisation = Carbon::parse(  $cotisation->date_cotisation)->locale(app()->getLocale())->isoFormat('DD MMMM YYYY'); 
                     return $cotisation;
                 });
 
