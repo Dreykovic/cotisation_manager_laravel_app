@@ -46,12 +46,32 @@ class TresorierController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Tresorier $tresorier)
+    public function edit(Request $request, $encrypt_id)
     {
-        //
+        try {
+            $membre_id = Crypt::decryptString($encrypt_id);
+            $membre = Tresorier::with([ 'user'])->find($membre_id);
+            
+            $segments = $request->segments();
+            // dd($segments);
+            $segment_before_id = count($segments) >= 2 ? $segments[count($segments) - 2] : null;
+            // dd($segment_before_id);
+            switch ($segment_before_id) {
+                case 'info':
+                    return view('pages.membres.settings.info', compact('membre'));
+          
+                case 'mot-de-passe':
+                    return view('pages.membres.settings.mot-de-passe', compact('membre'));
+         
+                default:
+                    abort(404); // Handle invalid URIs
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
+            dd($th->getMessage(), $th->getLine());
+
+            return view('errors.500');
+        }
     }
 
     /**

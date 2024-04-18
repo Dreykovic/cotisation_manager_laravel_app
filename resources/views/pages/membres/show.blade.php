@@ -42,12 +42,12 @@
                                 </a>
                             </li>
                             
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="{{ route('membres.password', $membre_id) }}"
                                     class="nav-link {{ Str::startsWith(request()->path(), 'membres/settings/mot-de-passe') ? 'active' : '' }}"">
                                     <i class="fas fa-unlock-alt"></i> <span>Changer Mot De Passe</span>
                                 </a>
-                            </li>
+                            </li> --}}
 
                         </ul>
                     </div>
@@ -64,6 +64,8 @@
 @push('js')
     <script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
     <script src="{{ asset('app-js/membres/update.js') }}"></script>
+
+    <script src="{{ asset('app-js/tresorier/pwd.js') }}"></script>
     <script src="{{ asset('app-js/cotisations/add.js') }}"></script>
     <script src="{{ asset('app-js/cotisations/delete.js') }}"></script>
 

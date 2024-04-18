@@ -5,6 +5,7 @@ use App\Http\Controllers\PdfController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MembreController;
 use App\Http\Controllers\NatureController;
+use App\Http\Controllers\TresorierController;
 use App\Http\Controllers\CotisationController;
 
 /*
@@ -46,6 +47,20 @@ Route::group(['middleware' => 'auth'], function () {
         });
     });
 
+    Route::prefix('/tresorier')->group(function () {
+
+
+
+
+        Route::prefix('/settings')->group(function () {
+            Route::get('/info/{id}', [TresorierController::class,  'edit'])->name('membres.info');
+    
+            Route::get('/mot-de-passe/{id}', [TresorierController::class,  'edit'])->name('membres.password');
+            Route::post('/mot-de-passe/update', [TresorierController::class,  'update_password'])->name('membres.password');
+        
+            Route::post('/info/update', [TresorierController::class,  'update'])->name('membres.update');
+        });
+    });
 
     /**
      * Cotisations

@@ -1,8 +1,11 @@
 @extends('pages.membres.show')
 @section('membre-settings')
+@php
+$membre_id = Illuminate\Support\Facades\Crypt::encryptString($membre->id);
+@endphp
     <div class="card shadow">
         <div class="card-header">
-            <h5 class="card-title">Change Password</h5>
+            <h5 class="card-title">Changer le mot de passe</h5>
         </div>
         <div class="card-body">
 
@@ -14,6 +17,8 @@
                             placeholder="Enter current password">
                     </div>
                 </div> --}}
+                <input type="hidden" name="tresorier" value="{{ $membre_id }}">
+
                 <div class="row form-group">
                     <label for="new_password" class="col-sm-3 col-form-label input-label">Nouveau mot de passe</label>
                     <div class="col-sm-9">
