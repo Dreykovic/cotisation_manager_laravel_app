@@ -48,7 +48,9 @@
                                         <option value="nom_pere">Nom de Père</option>
 
                                         <option value="sexe">Sexe</option>
-                                        <option value="ville">Lieu de Résidence</option>
+                                        <option value="ville">Ville de Résidence</option>
+                                        <option value="pays">Pays de Résidence</option>
+
 
 
                                     </select>

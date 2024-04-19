@@ -19,7 +19,7 @@ class PdfController extends Controller
     public function get_attribute_values($attribute = "all")
     {
         try {
-            $attribute = $attribute ?? 'last_name';  // Utilisation de l'opérateur null coalescing 
+            $attribute = $attribute ?? 'all';  // Utilisation de l'opérateur null coalescing 
             if ($attribute === 'all') {
                 return response()->json([]);
             }
@@ -73,7 +73,7 @@ class PdfController extends Controller
     
             return $pdf->download($titre);
         } catch (\Exception $e) {
-            return response()->json(['ok' => false, 'message' => $e->getMessage()]);
+            // return response()->json(['ok' => false, 'message' => $e->getMessage()]);
 
             // Vous pouvez gérer l'erreur ici, comme la logger ou retourner une réponse adaptée à l'erreur.
             return abort(400);
@@ -128,9 +128,9 @@ class PdfController extends Controller
             return abort(400);
 
 
-            return response()->json(['ok' => false, 'message' => $e->getMessage()]);
+            // return response()->json(['ok' => false, 'message' => $e->getMessage()]);
 
-            return response()->json(['ok' => false, 'message' => 'Une erreur s\'est produite. Veuillez réessayer.']);
+            // return response()->json(['ok' => false, 'message' => 'Une erreur s\'est produite. Veuillez réessayer.']);
 
         }
     }
