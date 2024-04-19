@@ -41,7 +41,9 @@
                             <div class="col-sm-5 col-md-5  m-auto">
                                 <div class="form-group">
                                     <label>Télécharger par</label>
-                                    <select class="select downloadFilterSelect">
+                                    <select class="select downloadFilterSelect" id="attributField">
+                                        <option value="all">Tout</option>
+
                                         <option value="last_name">Nom de Famille</option>
                                         <option value="nom_pere">Nom de Père</option>
 
@@ -54,16 +56,11 @@
                             </div>
                             <div class="col-sm-5 col-md-5 ">
                                 <div class="form-group">
-                                    <label>Télécharger par</label>
-                                    <select class="select downloadFilterSelect">
-                                        <option value="last_name">Nom de Famille</option>
-                                        <option value="nom_pere">Nom de Père</option>
-
-                                        <option value="sexe">Sexe</option>
-                                        <option value="ville">Lieu de Résidence</option>
-
-
+                                    <label>Valeur</label>
+                                    <select class="select" id="valueField" >
+                                        
                                     </select>
+                                    
                                 </div>
                             </div>
 

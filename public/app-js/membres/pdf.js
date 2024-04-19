@@ -3,8 +3,10 @@ let AppMembresPDF = (function () {
   let pdfModal;
 
   let downloadBtn;
-
-
+  let attributField;
+  let valueField;
+  let filterAttribut;
+  let filterValue;
 
 
   let handleDownload = () => {
@@ -15,9 +17,10 @@ let AppMembresPDF = (function () {
     $(downloadBtn).on("click", (e) => {
       e.preventDefault();
       // console.log($(".downloadFilterSelect").val());
-      const orderBy = $(".downloadFilterSelect").val() ?? "";
+      filterAttribut = attributField.val() == null || attributField.val() == "all" ? "" : attributField.val()
+      filterValue = valueField.val() == null || valueField.val() == "" || attributField.val() == "all" ? "" : `/${valueField.val()}`
       // console.log(orderBy);
-      const downloadUrl = "/download/pdf/membres/" + orderBy;
+      const downloadUrl = `/download/pdf/membres/${filterAttribut}${filterValue}`;
       console.log(downloadUrl);
       axios
         .get(downloadUrl, {
@@ -39,9 +42,42 @@ let AppMembresPDF = (function () {
 
   };
 
-  let addNatureCallback = () => {
-    location.reload();
-  };
+  let handle_filter = () => {
+    attributField.on('change', function (e) {
+      console.log(valueField);
+
+      // console.log(  valueField.attr('disabled'));
+      // valueField.attr('disabled', false);
+      valueField.val('');
+      valueField.select2('destroy').select2({
+        ajax: {
+          url: '/download/pdf/get-attribute-value/' + attributField.val(),
+          processResults: function (data) {
+            console.log(data);
+            // Transforms the top-level key of the response object from 'items' to 'results'
+            return {
+              results: data
+            };
+          }
+        }
+      });
+    });
+
+  }
+  let initValueSelect = () => {
+    valueField.select2({
+      ajax: {
+        url: '/download/pdf/get-attribute-value/' + attributField.val(),
+        processResults: function (data) {
+          console.log(data);
+          // Transforms the top-level key of the response object from 'items' to 'results'
+          return {
+            results: data
+          };
+        }
+      }
+    });
+  }
   return {
     init: () => {
       pdfModal = $("#cont-pdf-view");
@@ -50,9 +86,12 @@ let AppMembresPDF = (function () {
       }
 
       downloadBtn = $(".downloadBtn");
-
+      attributField = $('#attributField');
+      valueField = $('#valueField');
+      console.log(valueField);
 
       handleDownload();
+      handle_filter()
     },
   };
 })();
