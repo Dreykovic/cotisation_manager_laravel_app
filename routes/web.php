@@ -21,11 +21,11 @@ use App\Http\Controllers\CotisationController;
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', function () {
-        return view('pages.app');
-    })->name('home');
+        return view('pages.home.dashboard');
+    })->name('route_base');
 
     Route::get('/home', function () {
-        return view('pages.app');
+        return view('pages.home.dashboard');
     })->name('home');
     /**
      * membres

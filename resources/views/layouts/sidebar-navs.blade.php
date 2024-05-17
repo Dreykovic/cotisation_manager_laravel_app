@@ -3,8 +3,8 @@
         <div id="sidebar-menu" class="sidebar-menu">
             <ul>
                 <li class="menu-title"><span>Main</span></li>
-                <li class="{{ Request::is('/home') ? 'active' : '' }}">
-                    <a href="#"><i data-feather="home"></i> <span>Dashboard</span></a>
+                <li class="{{ Str::startsWith(request()->path(), 'home') ? 'active' : '' }}">
+                    <a href="{{ route('home') }}"><i data-feather="home"></i> <span>Dashboard</span></a>
                 </li>
 
 
