@@ -38,7 +38,7 @@
                 <a class="dropdown-item" href="#"><i data-feather="user" class="me-1"></i>
                     Profil</a>
                 <a class="dropdown-item" href="#"><i data-feather="settings" class="me-1"></i>
-                    PArametres</a>
+                    Parametres</a>
                 <a class="dropdown-item" href="{{ route('logout') }}"><i data-feather="log-out" class="me-1"></i>
                     Déconnexion</a>
             </div>
