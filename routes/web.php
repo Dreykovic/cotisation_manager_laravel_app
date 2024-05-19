@@ -105,9 +105,7 @@ Route::group(['middleware' => 'guest'], function () {
      */
     Route::get('/login', [AuthController::class, 'loginFormGet'])->name('login');
     Route::post('/login', [AuthController::class, 'login']);
-    Route::get('/register', [MembreController::class, 'create'])->name('register');
-    Route::get('/membres/numero/{id}', [MembreController::class, 'show'])->name('membres.numro');
-    Route::post('/membres/store', [MembreController::class, 'store']);
+
 
 
     Route::get('/login/forgot-password', [AuthController::class, 'forgotPasswordFormGet'])->name('forgot-password');
@@ -116,3 +114,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('/reset-password', [AuthController::class, 'changePassword'])->name('password.update');
     Route::get('/pass/success', [AuthController::class, 'passwordChanged'])->name('password.changed');
 });
+Route::get('/membres/numero/{id}', [MembreController::class, 'show'])->name('membres.numro');
+Route::post('/membres/store', [MembreController::class, 'store']);
+
+Route::get('/membres/register', [MembreController::class, 'create'])->name('membres.register');

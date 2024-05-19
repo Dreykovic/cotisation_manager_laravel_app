@@ -6,6 +6,8 @@
 
 
     <link rel="stylesheet" href="{{ asset('assets/plugins/datatables/datatables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/dragula/css/dragula.min.css') }}">
+
 @endsection
 
 @section('auth-content')
@@ -20,8 +22,10 @@
                             <li class="breadcrumb-item active">Membres</li>
                         </ul>
                     </div>
-                    <div class="col-auto">
-                        <a href="{{ route('cotisations.create') }}" class="btn btn-primary me-1">
+                    <div class="col-auto clipboard copy-txt">
+                   
+                        <a class="btn clip-btn btn-primary me-1" href="javascript:;" data-clipboard-action="copy" data-clipboard-text="{{ route('membres.register') }}"><i class="far fa-copy"></i> Lien</a>
+                        <a href="{{ route('membres.register') }}" class="btn btn-primary me-1">
                             <i class="fas fa-plus"></i>
                         </a>
 
@@ -183,6 +187,8 @@
 
     <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/datatables/datatables.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/clipboard/clipboard.min.js') }}"></script>
+
     <script src="{{ asset('app-js/membres/index.js') }}"></script>
     <script src="{{ asset('app-js/membres/pdf.js') }}"></script>
 @endpush

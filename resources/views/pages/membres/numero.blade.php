@@ -11,7 +11,7 @@
                 <h1>{{ $numero }}</h1>
 
                 <p class="h4 font-weight-normal">Merci de pour votre participation</p>
-
+                <a href="{{ route('membres.index') }}" class="btn btn-primary">Back</a>
             </div>
         </div>
     </body>

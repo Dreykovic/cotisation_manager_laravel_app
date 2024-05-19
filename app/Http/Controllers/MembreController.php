@@ -38,8 +38,12 @@ class MembreController extends Controller
     public function create()
     {
         try {
-            //code...
-            return view('pages.auth.sign-up.register');
+         
+            if(auth()->check()){
+                  return view('pages.membres.create-components.auth');
+                }else{
+            return view('pages.membres.create-components.guest');
+        }
 
         } catch (\Throwable $th) {
             //throw $th;
@@ -48,6 +52,7 @@ class MembreController extends Controller
             return view('errors.500');
         }
     }
+    
 
     /**
      * Store a newly created resource in storage.

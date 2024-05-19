@@ -34,10 +34,22 @@
 
 
 
-                <li class="{{ Str::startsWith(request()->path(), 'membres') ? 'active' : '' }}">
-                    <a href="{{ route('membres.index') }}"><i data-feather="user"></i> <span>Membres</span></a>
-                </li>
 
+                <li class="submenu">
+                    <a class="{{ Str::startsWith(request()->path(), 'membres') ? 'active' : '' }}" href="#"><i
+                            data-feather="credit-card"></i><span> Membres</span>
+                        <span class="menu-arrow"></span></a>
+                    <ul>
+                        <li class="{{ Str::startsWith(request()->path(), 'membres/liste') ? 'active' : '' }}">
+                            <a href="{{ route('membres.index') }}">Liste</a>
+                        </li>
+                        <li class="{{ Str::startsWith(request()->path(), 'membres/register') ? 'active' : '' }}">
+                            <a href="{{ route('membres.register') }}">Liste</a>
+                        </li>
+
+
+                    </ul>
+                </li>
 
             </ul>
         </div>
